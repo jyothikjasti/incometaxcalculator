@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head><title>Income Tax Calculator</title>
+<script type="text/javascript">
+  function incometax()
+    {
+      var a=income.tf1.value;
+      if(a>1000000)
+      {
+        income.tf2.value=112500+((a*3)/10);
+        income.tf3.value=(112500+((a*3)/10))/25;
+        income.tf4.value=(112500+((a*3)/10))-((112500+((a*3)/10))/25);
+      }
+      else if (a>500000)
+      {
+        income.tf2.value=12500+(a/5);
+        income.tf3.value=(12500+(a/5))/25;
+        income.tf4.value=(12500+(a/5))-((12500+(a/5))/25);
+      }
+      else if (a>250000)
+      {
+        income.tf2.value=(a*5)/100;
+        income.tf3.value=((a*2)/1000);
+        income.tf4.value=(a*5)/100-((a*2)/1000);
+      }
+      else
+      {
+        income.tf2.value=0;
+        income.tf3.value=0;
+        income.tf4.value=0;
+      }
+
+
+
+    }
+    function reset()
+    {
+        income.tf1.value=0;
+        income.tf2.value=0;
+        income.tf3.value=0;
+        income.tf4.value=0;
+    }
+</script>
+<style>
+table{
+  padding-top:2px;
+  padding-bottom:100px;
+  padding-right:100px;
+  padding-left: 100px;
+  border-collapse: collapse;
+
+}
+table td{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:100px;
+  padding-right:100px;
+  color:white;
+  align-content: left;
+}
+</style>
+</head>
+<body>
+<h3><b>INCOME TAX CALCULATOR</b></h3><br><br><br>
+<form name="income">
+<table align="center">
+<tr style="background-color:#cc0000; color:white; ">
+  <td colspan="2" align="center" style="border-top-right-radius: 30px;border-top-left-radius: 30px;">
+    <b>TAXMANN'S INCOME TAX</b></td></tr>
+<tr style="background-color:#000005; color:white; border-bottom: 1px solid white;"><td align="left">Step 1 : Assisment Year</td>
+<td align="right"><select style="min-width:100%; border-radius: 13px;">
+	  <option value="2020-21">2020-21    </option>
+	  <option value="2019-20">2019-20    </option>
+	  <option value="2018-19">2018-19    </option>
+</select></td></tr>
+<tr style="background-color:#000005; color:white; border-bottom: 1px solid white;"><td align="left">Step 2 : Tax Payer</td>
+<td align="right"><select style="min-width:100%; border-radius: 13px;">
+	  <option value="Individual">Individual</option>
+	  <option value="HUF">HUF</option>
+	  <option value="Domestic Comapany">Domestic Company</option>
+</select></td></tr>
+
+<tr style="background-color:#000005; color:white; border-bottom: 1px solid white;"><td align="left">Step 3 : Male / Female / Senior Citizen</td>
+<td align="right"><select style="min-width:100%; border-radius: 13px;">
+	  <option value="Male">Male</option>
+	  <option value="Female">Female</option>
+	  <option value="Senior Citizen">Senior Citizen</option>
+</select></td></tr>
+
+<tr style="background-color:#000005; color:white; border-bottom: 1px solid white;"><td align="left">Step 4 : Residential Status</td>
+<td align="right"><select style="min-width:100%; border-radius: 13px;">
+	  <option value="Resident">Resident</option>
+	  <option value="Non-Resident">Non-Resident</option>
+</select></td></tr>
+<tr style="background-color:#000005; color:white;">
+  <td align="left" style="border-bottom-left-radius: 30px;">
+  Step 5 :Net Taxable Income</td>
+<td align="right" style="border-bottom-right-radius: 30px;">
+  <input type='number' name="tf1" style="border-radius: 13px; size: 20px;" onkeydown="incometax()">
+</td></tr>
+<tr style="background-color:#cc0000; color:white; ">
+  <td colspan="2" align="center" style="border-top-right-radius: 30px;border-top-left-radius: 30px;">
+    <b>YOUR TAX COMPUTATION</b></td></tr>
+<tr style="background-color:#9D9999;"><td align="left" style="color:black;  border-bottom: 1px solid black;">Income Tax</td>
+  <td align="right" style="border-bottom: 1px solid black;"><input type='number' name='tf2' style="border-radius: 13px; size: 20px;" readonly=""></td></tr>
+<tr style="background-color:#9D9999;"><td align="left" style="color:black; border-bottom: 1px solid black;">Health and Education Cess @ 4%</td>
+  <td align="right" style="border-bottom: 1px solid black;"><input type='number' name='tf3' style="border-radius: 13px; size: 20px;" readonly=""></td></tr>
+<tr style="background-color:#9D9999;"><td align="left" style="color:black; border-bottom-left-radius: 30px;">Total Tax Liability</td>
+  <td align="right" style="border-bottom-right-radius: 30px; "><input type='number' name='tf4' style="border-radius: 13px; size: 20px;" readonly=""></td></tr>
+<tr style="border-radius: 13px;"><td align="right">
+  <input type="button" style="border-radius: 13px; size: 10px; background-color: #4251D8; color: white; padding: 10px 20px;" value="Calculate" onclick=""></td>
+  <td align="left"><input type='button' style="border-radius: 13px; size: 10px; background-color: #4251D8; color: white;
+  padding:10px 20px;  " value="Reset" onclick="reset()"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
